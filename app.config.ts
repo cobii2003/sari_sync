@@ -32,7 +32,7 @@ const env = {
   appSlug: "sari_sync",
   // S3 URL of the app logo - set this to the URL returned by generate_image when creating custom logo
   // Leave empty to use the default icon from assets/images/icon.png
-  logoUrl: "",
+  logoUrl: "https://d2xsxph8kpxj0f.cloudfront.net/310519663587757691/Qgp6QGBFaWRzVUUNms9pHC/sari_sync_icon_clean-7byJSg9oZpsFc24dNrQigi.png",
   scheme: schemeFromBundleId,
   iosBundleId: bundleId,
   androidPackage: bundleId,
@@ -56,7 +56,7 @@ const config: ExpoConfig = {
   },
   android: {
     adaptiveIcon: {
-      backgroundColor: "#E6F4FE",
+      backgroundColor: "#3D5A80",
       foregroundImage: "./assets/images/android-icon-foreground.png",
       backgroundImage: "./assets/images/android-icon-background.png",
       monochromeImage: "./assets/images/android-icon-monochrome.png",
@@ -87,6 +87,27 @@ const config: ExpoConfig = {
   plugins: [
     "expo-router",
     [
+      "expo-camera",
+      {
+        cameraPermission: "Pahintulutan ang Sari Sync na gamitin ang camera para mag-scan ng paninda.",
+        microphonePermission: "Pahintulutan ang Sari Sync na i-access ang microphone.",
+        recordAudioAndroid: false,
+      },
+    ],
+    [
+      "expo-image-picker",
+      {
+        photosPermission: "Pahintulutan ang Sari Sync na i-access ang iyong photo gallery para makapili ng larawan ng paninda.",
+      },
+    ],
+    [
+      "expo-notifications",
+      {
+        icon: "./assets/images/icon.png",
+        color: "#3D5A80",
+      },
+    ],
+    [
       "expo-audio",
       {
         microphonePermission: "Allow $(PRODUCT_NAME) to access your microphone.",
@@ -105,9 +126,9 @@ const config: ExpoConfig = {
         image: "./assets/images/splash-icon.png",
         imageWidth: 200,
         resizeMode: "contain",
-        backgroundColor: "#ffffff",
+        backgroundColor: "#3D5A80",
         dark: {
-          backgroundColor: "#000000",
+          backgroundColor: "#3D5A80",
         },
       },
     ],
